@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两列等高</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 500px;
+			overflow: hidden;
+		}
+		.left{
+			width: 200px;
+			background-color: #ccc;
+			float: left;
+			padding-bottom: 2000px;
+			margin-bottom: -2000px;
+		}
+		.right{
+			width: 300px;
+			background-color: #999;
+			float: left;
+			padding-bottom: 2000px;
+			margin-bottom: -2000px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left">我是left</div>
+		<div class="right">
+			我是right<br><br><br>
+			right比left高，但是left用padding-bottom补偿了
+		</div>
+	</div>
+</body>
+</html>
