@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>左不动右边自适应的两列布局</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+		html,body{
+			height: 100%;
+		}
+		.left{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 100%;
+			background-color: #f00;
+		}
+		.right{
+			height: 100%;
+			margin: 0 0 0 210px;
+			background-color: #0f0;
+		}
+	</style>
+</head>
+<body>
+	<div class="left"></div>
+	<div class="right"></div>
+</body>
+</html>
