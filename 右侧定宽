@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右侧定宽，左侧或中间自适应</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.demo1,.demo2{
+			position: relative;
+			width: 100%;
+			height: 200px;
+		}
+		.left,.main,.right{
+			height: 100%;
+		}
+		.left{
+			background-color: #f00;
+		}
+		.right{
+			width: 200px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: #00f;
+		}
+		.main{
+			background-color: #0f0;
+		}
+		.demo1 .left{
+			margin-right: 500px;
+		}
+		.demo1 .main{
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 300px;
+			margin-right: 200px;
+		}
+
+		.demo2 .left{
+			position: absolute;
+			width: 300px;
+			left:0;
+		}
+		.demo2 .main{
+			margin: 0 200px 0 300px;
+		}
+	</style>
+</head>
+<body>
+	<h2>左侧自适应</h2>
+	<div class="demo1">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="main"></div>
+	</div>
+	<br>
+	<hr>
+	<h2>中间自适应</h2>
+	<div class="demo2">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="main"></div>
+	</div>
+</body>
+</html>
