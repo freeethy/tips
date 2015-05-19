@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      *{
+          margin:0;
+          padding:0;
+      }
+      #chenkbox{
+            margin: 100px auto;
+            width: 500px;
+            position: relative;
+      }
+      table{
+            width: 500px;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+      }
+     th{
+            background: #ebf3f0;
+            font-size: 13px;
+            color:#000002;
+     }
+     th,td{
+             text-align: center;
+             border: 1px solid #dcdbdb;
+            padding: 2px 6px;
+     }
+     #box{position:absolute;display:none;opacity:0.9;background:#fff;text-align: center;top:0;}
+    </style>
+</head>
+<body>
+<div id="chenkbox"> 
+<table id="tableSort">
+           <tr>
+             <th onclick="sortTable('tableSort',0)">
+                     序列
+                </th>
+                <th onclick="sortTable('tableSort',1)">
+                     名称
+                </th>
+                <th onclick="sortTable('tableSort',2)">
+                    数量
+                </th>
+                <th onclick="sortTable('tableSort',3)">
+                   单价(Q点)
+                </th>
+                <th onclick="sortTable('tableSort',4)">
+                    总计(Q点)
+                </th>
+           </tr>  
+       <tr>
+                <td>1</td>
+                <td>农场话费A</td>
+                <td>2</td>
+                <td>50</td>
+                <td>100</td>
+       </tr>
+       <tr>
+                <td>2</td>
+                <td>飞车道具C</td>
+                <td>1</td>
+                <td>80</td>
+                <td>80</td>
+       </tr>
+       <tr>
+                <td>3</td>
+                <td>空间K</td>
+                <td>1</td>
+                <td>120</td>
+                <td>120</td>
+       </tr>
+       <tr>
+                <td>4</td>
+                <td>农场狗粮C</td>
+                <td>4</td>
+                <td>60</td>
+                <td>240</td>
+       </tr>
+       <tr>
+                <td>5</td>
+                <td>音速种子</td>
+                <td>2</td>
+                <td>110</td>
+                <td>220</td>
+       </tr>
+       <tr>
+                <td>6</td>
+                <td>农场化肥D</td>
+                <td>5</td>
+                <td>60</td>
+                <td>300</td>
+       </tr>
+       <tr>
+                <td>7</td>
+                <td>AVA装扮C</td>
+                <td>1</td>
+                <td>300</td>
+                <td>300</td>
+       </tr>
+       <tr>
+                <td>8</td>
+                <td>三国道具C</td>
+                <td>15</td>
+                <td>60</td>
+                <td>900</td>
+       </tr>
+       <tr>
+                <td>9</td>
+                <td>DNF道具B</td>
+                <td>4</td>
+                <td>300</td>
+                <td>1200</td>
+       </tr>
+       <tr>
+                <td>10</td>
+                <td>农场化肥H</td>
+                <td>6</td>
+                <td>80</td>
+                <td>120</td>
+       </tr>
+       <tr>
+                <td>11</td>
+                <td>农场化肥B</td>
+                <td>1</td>
+                <td>80</td>
+                <td>80</td>
+       </tr>
+       <tr>
+                <td>12</td>
+                <td>Q宠元宝</td>
+                <td>100</td>
+                <td>1</td>
+                <td>100</td>
+      </tr>
+       <tr>
+                <td>13</td>
+                <td>三国道具K</td>
+                <td>9</td>
+                <td>20</td>
+                <td>180</td>
+      </tr>
+</table>
+ <div id="box"> </div>
+ </div>
+<script>
+ /*function sortTable(table,idx){
+    var otable=document.getElementById(table),
+        otody=otable.tBodies[0],
+        otr=otody.rows,
+        tarr=[];
+     for (var i = 1; i <otr.length; i++) {
+           tarr[i-1]=otr[i];
+     };
+    // console.log(tarr);
+    //如果上次是按照idx排序的，在次点击idx就倒序排列，否则重排
+     if(otody.sortCol==idx){
+        tarr.reverse();
+     }else{
+        tarr.sort(function(tr1,tr2){
+            var value1 = tr1.cells[idx].innerHTML; 
+            var value2 = tr2.cells[idx].innerHTML; 
+            if(!isNaN(value1)&&!isNaN(value2)){
+               return value1-value2;
+            }else{
+              return value1.localeCompare(value2);
+             }           
+        })
+     }
+     //将排好序的每一列取出放入fragment中，然后将fragment访到otody中
+     var fragment = document.createDocumentFragment();
+     for (var i = 0; i <tarr.length; i++) {
+         fragment.appendChild(tarr[i]);
+     };
+     otody.appendChild(fragment);
+     otody.sortCol=idx;
+  }*/
+
+  function sortTable(table,idx){
+    var oTable=document.getElementById(table),
+        oBody=oTable.tBodies[0],
+        oTr=oBody.rows,
+        tarr=[];
+     for (var i = 1; i <oTr.length; i++) {
+           tarr[i-1]=oTr[i];
+     };
+    // console.log(tarr);
+    //如果上次是按照idx排序的，在次点击idx就倒序排列，否则重排
+    if(oBody.sortCol == idx){
+      tarr.reverse();
+    }else{
+      tarr.sort(function(tr1,tr2){
+          var value1 = tr1.cells[idx].innerHTML;
+          var value2 = tr2.cells[idx].innerHTML;
+          if(!isNaN(value1) && !isNaN(value2)){
+            return value1 - value2;
+          }else{
+            return value1.localeCompare(value2);
+          }
+      });
+    }
+
+    //将排好序的每一列取出放入fragment中，然后将fragment访到otody中
+    var fragment = document.createDocumentFragment();
+    for(var i=0;i<tarr.length;i++){
+      fragment.appendChild(tarr[i]);
+    }
+    oBody.appendChild(fragment);
+    oBody.sortCol = idx;
+  }
+
+  //拖动
+  function Drag(table){
+    var ochek=document.getElementById("chenkbox"),
+        otable=document.getElementById(table),
+        otody=otable.tBodies[0],
+        oth=otody.getElementsByTagName("th"),
+        otd=otody.getElementsByTagName("td"),
+        box=document.getElementById("box"),
+        arrn=[];
+        for (var i = 0; i < otd.length; i++) {
+          otd[i].onmousedown=function(e){
+              var e=e||window.event,
+                  target = e.target||e.srcElement,
+                  thW = target.offsetWidth,
+                  maxl=ochek.offsetWidth-thW,
+                  rows=otable.rows,
+                  ckL=ochek.offsetLeft,
+                  disX=target.offsetLeft,
+                  _this=this,
+                  cdisX=e.clientX-ckL-disX;
+                  for (var i = 0; i < rows.length; i++) {
+                      var op=document.createElement("p");
+                      op.innerHTML=rows[i].cells[this.cellIndex].innerHTML;  
+                      box.appendChild(op);
+                  };    
+                  for (var i = 0; i < oth.length; i++) {
+                         arrn.push(oth[i].offsetLeft);      
+                  }; 
+                  console.log(arrn);
+                  box.style.display="block";
+                  box.style.width=thW+"px";
+                  box.style.left=disX+"px";
+                  //未完成 还有事件没写。
+                  document.onmousemove=function(e){
+                      var e=e||window.event,
+                      target = e.target||e.srcElement,
+                      thW = target.offsetWidth;
+                      box.style.top=0;
+                      box.style.left=e.clientX-ckL-cdisX+"px";
+                      if(box.offsetLeft>maxl){
+                           box.style.left=maxl+"px";
+                      }else if(box.offsetLeft<0){
+                           box.style.left=0;
+                      }        
+                      document.onselectstart=function(){return false};     
+                    window.getSelection ? window.getSelection().removeAllRanges() : doc.selection.empty();              
+                  }
+                  document.onmouseup=function(e){
+                     var e=e||window.event,
+                         opr=box.getElementsByTagName("p"),
+                         oboxl=box.offsetLeft+cdisX;
+                        for (var i = 0; i < arrn.length; i++) {
+                           if(arrn[i]<oboxl){
+                            var index=i;
+                           }
+                        };
+                       for (var i = 0; i < rows.length; i++) {
+                          rows[i].cells[_this.cellIndex].innerHTML="";
+                          rows[i].cells[_this.cellIndex].innerHTML=rows[i].cells[index].innerHTML;
+                          rows[i].cells[index].innerHTML="";
+                          rows[i].cells[index].innerHTML=opr[i].innerHTML;
+                          console.log(rows[i].cells[index].innerHTML);
+                       };
+                       box.innerHTML="";
+                       arrn.splice(0,arrn.length);
+                       box.style.display="none";
+                       document.onmousemove=null; 
+                       document.onmouseup=null;
+                       document.onselectstart=function(){return false};     
+                  }
+
+             }
+        };
+        
+  }
+  Drag("tableSort");
+</script>
+</body>
+</html>
