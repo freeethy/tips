@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏布局3</title>
+	<style>
+		html,body{
+			height: 100%;
+			margin: 0;
+		}
+		#left{
+			float: left;
+			width: 200px;
+			height: 100%;
+			background: #f00;
+		}
+		#right{
+			float: right;
+			width: 200px;
+			height: 100%;
+			background: #00f;
+		}
+		#main{
+			height: 100%;
+			margin: 0 210px;
+			background: #0f0;
+		}
+	</style>
+</head>
+<body>
+	<div id="left"></div>
+	<div id="right"></div>
+	<div id="main"></div>
+</body>
+</html>
