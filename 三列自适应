@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>三列自适应高度布局</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+        height: 100%;
+    }
+    .three-col,.cols,.col{
+        float: left;
+        position: relative;
+        width: 100%;
+    }
+    .three-col{       
+        overflow: hidden;
+        background-color: #aaa;
+    }
+    .cols{
+        right: 20%;
+        background-color: #bbb;
+    }
+    .col{
+        right: 60%;
+        background-color: #ccc;
+    }
+    .col1,.col2,.col3{
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .col1{
+        left: 101%;
+        width: 58%;
+    }
+    .col2{
+        left: 23%;
+        width: 18%;
+    }
+    .col3{
+        left: 85%;
+        width: 18%;
+    }
+</style>
+</head>
+<body>
+<div class="three-col">
+    <div class="cols">
+        <div class="col">
+            <div class="col1">
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+                <p>这里是中间</p>
+            </div>
+            <div class="col2"> 这里是左栏 </div>
+            <div class="col3">
+                <p>这里是右栏</p>
+                <p>这里是右栏</p>
+                <p>这里是右栏</p>
+                <p>这里是右栏</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
