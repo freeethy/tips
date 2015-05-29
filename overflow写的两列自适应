@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  *{
+    margin:0;
+    padding: 0;
+  }
+     .right{
+       width:100px;
+       background:#f00;
+       float:right;
+       height:100%;
+     }
+    .left{
+      background:#0f0;
+      height:100%;
+      overflow: hidden;
+    }
+    html,body{
+      width:100%;
+      height:100%;
+    }
+  </style>
+</head>
+<body>
+    <div class="right"></div>
+    <div class="left"></div>
+</body>
+</html>
